@@ -1,0 +1,27 @@
+[package]
+name    = "cjvalpy"
+version = "0.1.0"
+authors = ["Hugo Ledoux <h.ledoux@tudelft.nl>"]
+license = "MIT"
+homepage="https://github.com/hugoledoux/startinpy"
+repository="https://github.com/hugoledoux/startinpy"
+description = "A Delaunay triangulator for terrains"
+readme = "README.md"
+edition = "2018"
+
+[dependencies]
+cjval = "0.3.0"
+
+
+[dependencies.pyo3]
+version = "0.11"
+features = ["extension-module"]
+
+[lib]
+name = "cjvalpy"
+crate-type = ["cdylib"]
+
+[package.metadata.maturin]
+requires-python = ">=3.6"
+requires-dist = ["toml==0.10.0"]
+classifier=["License :: OSI Approved :: MIT License"]
