@@ -12,19 +12,19 @@ with open("Cargo.toml") as fp:
 
 
 setup(
-    name="startinpy",
+    name="cjvalpy",
     version=version,
     description=description,
     long_description=long_description,
     long_description_content_type="text/x-md",
-    url='https://github.com/hugoledoux/startinpy',
+    url='https://github.com/hugoledoux/cjvalpy',
     author='Hugo Ledoux',
     author_email='h.ledoux@tudelft.nl',
     classifiers=[
         "License :: OSI Approved :: MIT License",
     ],
     packages=["startinpy"],
-    python_requires='>=3.6',
+    python_requires='>=3.7',
 )
 
 

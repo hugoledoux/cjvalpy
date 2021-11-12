@@ -3,15 +3,14 @@ name    = "cjvalpy"
 version = "0.1.0"
 authors = ["Hugo Ledoux <h.ledoux@tudelft.nl>"]
 license = "MIT"
-homepage="https://github.com/hugoledoux/startinpy"
-repository="https://github.com/hugoledoux/startinpy"
-description = "A Delaunay triangulator for terrains"
+homepage="https://github.com/hugoledoux/cjvalpy"
+repository="https://github.com/hugoledoux/cjvalpy"
+description = "The Python bindings of the official CityJSON validator"
 readme = "README.md"
 edition = "2018"
 
 [dependencies]
 cjval = "0.3.0"
-
 
 [dependencies.pyo3]
 version = "0.11"
@@ -22,6 +21,6 @@ name = "cjvalpy"
 crate-type = ["cdylib"]
 
 [package.metadata.maturin]
-requires-python = ">=3.6"
-requires-dist = ["toml==0.10.0"]
+requires-python = ">=3.7"
+requires-dist = ["toml==0.10.2"]
 classifier=["License :: OSI Approved :: MIT License"]
