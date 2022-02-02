@@ -10,7 +10,7 @@ readme = "README.md"
 edition = "2018"
 
 [dependencies]
-cjval = "0.3.0"
+cjval = "0.4.1"
 
 [dependencies.pyo3]
 version = "0.11"
