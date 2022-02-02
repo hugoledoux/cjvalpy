@@ -28,16 +28,9 @@ impl CJValidator {
         } else {
             let mut val = re.unwrap();
             let mut s = String::from("=== CityJSON syntax ===\n");
-            let version = val.get_input_cityjson_version();
             s.push_str("CityJSON schemas used: v");
-            match version {
-                10 => s.push_str(cjval::CITYJSON_VERSIONS[0]),
-
-                11 => s.push_str(cjval::CITYJSON_VERSIONS[1]),
-
-                _ => {}
-            }
-            s.push_str(" (builtin)\n");
+            s.push_str(&val.get_cityjson_schema_version());
+            // s.push_str(" (builtin)\n");
             let rev = val.validate_schema();
             print_errors(&mut s, &rev);
             if rev.is_empty() == true {
