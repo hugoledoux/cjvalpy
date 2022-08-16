@@ -30,7 +30,7 @@ impl CJValidator {
             let mut s = String::from("=== CityJSON syntax ===\n");
             s.push_str("CityJSON schemas used: v");
             s.push_str(&val.get_cityjson_schema_version());
-            // s.push_str(" (builtin)\n");
+            s.push_str(" (builtin)\n\n");
             let rev = val.validate_schema();
             print_errors(&mut s, &rev);
             if rev.is_empty() == true {
@@ -61,23 +61,27 @@ impl CJValidator {
         }
     }
 
-    fn validate(&mut self) -> PyResult<String> {
+    fn get_report(&mut self) -> PyResult<String> {
+        return Ok(self.serrors.clone());
+    }
+
+    fn validate(&mut self) -> PyResult<bool> {
         if self.isvalid == false {
             print_summary(&mut self.serrors, -1);
-            return Ok(self.serrors.clone());
+            return Ok(self.isvalid);
         }
         //-- validate Extensions, if any
         if self.val.get_input_cityjson_version() == 10 {
             self.serrors
                 .push_str("(validation of Extensions is not supported in v1.0, upgrade to v1.1)");
             print_summary(&mut self.serrors, -1);
-            return Ok(self.serrors.clone());
+            return Ok(self.isvalid);
         }
         let mut rev = self.val.validate_extensions();
         print_errors(&mut self.serrors, &rev);
         if rev.is_empty() == false {
             print_summary(&mut self.serrors, -1);
-            return Ok(self.serrors.clone());
+            return Ok(self.isvalid);
         }
 
         //-- parent_children_consistency
@@ -105,7 +109,7 @@ impl CJValidator {
 
         if self.isvalid == false {
             print_summary(&mut self.serrors, -1);
-            return Ok(self.serrors.clone());
+            return Ok(self.isvalid);
         }
 
         //-- WARNINGS
@@ -144,7 +148,7 @@ impl CJValidator {
         } else {
             print_summary(&mut self.serrors, 0);
         }
-        Ok(self.serrors.clone())
+        return Ok(self.isvalid);
     }
 }
 

@@ -28,3 +28,21 @@ Made to be used with [cjio](https://github.com/cityjson/cjio):
 cjio myfile.city.json validate
 ```
 
+but can be used directly in python:
+
+```python
+import cjvalpy
+import json
+
+f = open("/home/elvis/mydata/myfile.city.json")
+fj = f.read()
+val = cjvalpy.CJValidator([fj])
+re = val.validate()
+if re == True:
+    print("✅")
+else: 
+    print("oh no invalid 😢")
+    print(val.get_report())
+```
+
+
