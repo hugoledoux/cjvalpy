@@ -24,7 +24,7 @@ impl CJValidator {
         let re = cjval::CJValidator::from_str(&j[0]);
         if re.is_err() {
             let s = format!("Invalid JSON file: {:?}", re.as_ref().err().unwrap());
-            return Err(PyErr::new::<exceptions::IOError, _>(s));
+            return Err(PyErr::new::<exceptions::PyIOError, _>(s));
         } else {
             let mut val = re.unwrap();
             let mut s = String::from("=== CityJSON syntax ===\n");

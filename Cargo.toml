@@ -13,7 +13,7 @@ edition = "2021"
 cjval = "0.4.3"
 
 [dependencies.pyo3]
-version = "0.11"
+version = "~0.16.0"
 features = ["extension-module"]
 
 [lib]
