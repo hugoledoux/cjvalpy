@@ -32,7 +32,7 @@ jobs:
       with:
         maturin-version: latest
         command: publish
-        args: --dist -u hledoux -p ${{ secrets.PASSWORD_PYPI }}
+        args: --sdist -u hledoux -p ${{ secrets.PASSWORD_PYPI }}
 
   macos:
     runs-on: macos-latest
@@ -50,4 +50,4 @@ jobs:
       with:
         maturin-version: latest
         command: publish
-        args: --dist --universal2 -u hledoux -p ${{ secrets.PASSWORD_PYPI }}
+        args: --sdist --universal2 -u hledoux -p ${{ secrets.PASSWORD_PYPI }}
