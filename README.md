@@ -3,7 +3,7 @@
 [![GitHub license](https://img.shields.io/github/license/cityjson/cjvalpy)](https://github.com/cityjson/cjvalpy/blob/main/LICENSE) 
 [![PyPI version](https://badge.fury.io/py/cjvalpy.svg)](https://badge.fury.io/py/cjvalpy)
 
-Python bindings of [cjval](https://github.com/cityjson/cjval), the validator for CityJSON files.
+Python bindings of [cjval](https://github.com/cityjson/cjval), the official validator for [CityJSON](https://cityjson.org) files.
 
 
 ## Installation
