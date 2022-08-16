@@ -25,3 +25,16 @@ jobs:
         maturin-version: latest
         command: build
         args: --release --sdist --universal2
+
+  windows:
+    runs-on: windows-latest
+    strategy:
+      matrix:
+        python-version: ['3.7', '3.8', '3.9', '3.10']
+    steps:
+    - uses: actions/checkout@v2
+    - uses: messense/maturin-action@v1
+      with:
+        maturin-version: latest
+        command: build
+        args: --release --sdist        
