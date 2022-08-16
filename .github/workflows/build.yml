@@ -21,7 +21,7 @@ jobs:
         manylinux: auto
         target: ${{ matrix.target }}
         command: build
-        args: --release --no-sdist
+        args: --release 
 
   windows:
     runs-on: windows-latest
@@ -31,7 +31,7 @@ jobs:
       with:
         maturin-version: latest
         command: build
-        args: --release --no-sdist
+        args: --release 
 
   macos:
     runs-on: macos-latest
@@ -46,4 +46,4 @@ jobs:
       with:
         maturin-version: latest
         command: build
-        args: --release --no-sdist --universal2
+        args: --release --universal2
