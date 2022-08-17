@@ -2,9 +2,7 @@ name: Build Python bindings
 
 on:
   push:
-  pull_request:
-  schedule:
-    - cron:  '0 6 * * 1' # Run every monday at 06:00 UTC
+
 
 jobs:
 
@@ -12,7 +10,7 @@ jobs:
     runs-on: macos-latest
     strategy:
       matrix:
-        python-version: ['3.7', '3.8', '3.9', '3.10']
+        python-version: ['3.8', '3.9']
     steps:
     - uses: actions/checkout@v2
     - name: Install aarch64-apple-darwin toolchain
@@ -24,17 +22,5 @@ jobs:
       with:
         maturin-version: latest
         command: build
-        args: --release --sdist --universal2
+        args: --release --universal2
 
-  windows:
-    runs-on: windows-latest
-    strategy:
-      matrix:
-        python-version: ['3.7', '3.8', '3.9', '3.10']
-    steps:
-    - uses: actions/checkout@v2
-    - uses: messense/maturin-action@v1
-      with:
-        maturin-version: latest
-        command: build
-        args: --release --sdist        
