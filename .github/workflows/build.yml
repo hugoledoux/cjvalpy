@@ -5,7 +5,7 @@ on:
 
 jobs:
 
-  Python3.8:
+  Python38:
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@v2
@@ -20,7 +20,7 @@ jobs:
         command: build
         args: --release --i python3.8 --universal2
 
-  Python3.9:
+  Python39:
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@v2
