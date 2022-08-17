@@ -1,5 +1,4 @@
-name: Build Python bindings
-
+name: Build test
 on:
   push:
 
